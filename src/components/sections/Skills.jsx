@@ -51,7 +51,7 @@ const Skills = () => {
       textColor: 'text-orange-600 dark:text-orange-400',
       bgColor: 'bg-orange-50 dark:bg-orange-950/30',
       borderColor: 'border-orange-200 dark:border-orange-800/50',
-      skills: ['Java', 'JavaScript', 'SQL', 'HTML', 'CSS', 'C', 'C++']
+      skills: ['Java','C', 'C++' ,'JavaScript', 'SQL', 'HTML', 'CSS']
     },
     {
       id: 'backend',
@@ -61,7 +61,7 @@ const Skills = () => {
       textColor: 'text-green-600 dark:text-emerald-400',
       bgColor: 'bg-green-50 dark:bg-emerald-950/30',
       borderColor: 'border-green-200 dark:border-emerald-800/50',
-      skills: ['Spring Boot', 'Spring MVC', 'Spring Security', 'Spring Data JPA', 'Hibernate', 'Node.js', 'Express.js']
+      skills: ['Spring Boot', 'Spring MVC', 'Spring Security', ,'Jsp','Spring Data JPA', 'Hibernate', 'Node.js', 'Express.js']
     },
     {
       id: 'frontend',
@@ -71,7 +71,7 @@ const Skills = () => {
       textColor: 'text-blue-600 dark:text-blue-400',
       bgColor: 'bg-blue-50 dark:bg-blue-950/30',
       borderColor: 'border-blue-200 dark:border-blue-800/50',
-      skills: ['React.js', 'Redux Toolkit', 'Vite', 'Tailwind CSS', 'React Router', 'Axios']
+      skills: ['React.js', 'NextJs', 'Redux Toolkit', 'Vite', 'Tailwind CSS', 'React Router', 'Axios']
     },
     {
       id: 'database',

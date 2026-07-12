@@ -58,9 +58,9 @@ const Contact = () => {
 
     try {
       // REPLACE THESE WITH YOUR ACTUAL CREDENTIALS
-      const serviceID = 'YOUR_SERVICE_ID';
-      const templateID = 'YOUR_TEMPLATE_ID';
-      const userID = 'YOUR_USER_ID';
+      const serviceID = 'service_85y9x2d';
+      const templateID = 'template_umvg8sa';
+      const userID = 'BeC6nH8OhrUFka4dX';
 
       const templateParams = {
         name: formData.name,
@@ -193,8 +193,7 @@ const Contact = () => {
               </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 I'm currently looking for internship or full-time opportunities
-                where I can contribute my skills and grow as a developer. Feel
-                free to reach out!
+                where I can contribute my skills and grow as a developer.
               </p>
             </motion.div>
 

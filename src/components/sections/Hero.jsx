@@ -173,17 +173,18 @@ const Hero = () => {
                 <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-pink-200/20 dark:bg-green-500/5 rounded-full blur-3xl" />
 
                 <div className="relative z-10">
+                  {/* Profile Image - BIGGER SIZE */}
                   <div className="flex justify-center mb-6">
                     <div className="relative">
-                      <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-amber-300/50 dark:border-emerald-400/30 card-shadow">
+                      <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-amber-300/50 dark:border-emerald-400/30 card-shadow">
                         <img 
                           src="/images/profile.jpg" 
                           alt="SK Dulal Islam"
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="absolute -bottom-1 -right-1 w-10 h-10 bg-gradient-to-r from-amber-500 to-pink-500 dark:from-emerald-500 dark:to-cyan-500 rounded-full flex items-center justify-center border-2 border-white dark:border-dark-bg">
-                        <Code className="w-5 h-5 text-white" />
+                      <div className="absolute -bottom-1 -right-1 w-12 h-12 bg-gradient-to-r from-amber-500 to-pink-500 dark:from-emerald-500 dark:to-cyan-500 rounded-full flex items-center justify-center border-2 border-white dark:border-dark-bg">
+                        <Code className="w-6 h-6 text-white" />
                       </div>
                     </div>
                   </div>
