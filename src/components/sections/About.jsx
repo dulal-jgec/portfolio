@@ -195,36 +195,23 @@ const About = () => {
             viewport={{ once: true, amount: 0.3 }}
             className="space-y-4"
           >
-            <motion.div variants={itemVariants}>
-              <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                I am a final-year B.Tech student in Information Technology at
-                Jalpaiguri Government Engineering College (JGEC) with a strong
-                interest in software engineering and full-stack web development.
-                I enjoy building applications that solve real-world problems and
-                continuously improving my technical and problem-solving skills.
-              </p>
-            </motion.div>
+<motion.div variants={itemVariants}>
+  <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+    I'm <span className="font-semibold text-pink-600 dark:text-green-400">SK Dulal Islam</span>, a final-year B.Tech student in Information Technology at Jalpaiguri Government Engineering College (JGEC). I'm passionate about software engineering and enjoy building scalable, user-focused web applications while continuously improving my technical and problem-solving skills.
+  </p>
+</motion.div>
 
-            <motion.div variants={itemVariants}>
-              <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                Through hands-on projects, I have gained practical experience in
-                designing and developing complete web applications while
-                learning the importance of clean architecture, maintainable
-                code, and user-focused development. I believe every project is
-                an opportunity to learn something new and become a better
-                developer.
-              </p>
-            </motion.div>
+<motion.div variants={itemVariants}>
+  <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+    Through hands-on projects, I have developed practical experience in full-stack development, software architecture, and writing clean, maintainable code. I enjoy learning new technologies and applying best practices to build reliable software.
+  </p>
+</motion.div>
 
-            <motion.div variants={itemVariants}>
-              <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                Beyond development, I actively practice Data Structures and
-                Algorithms to strengthen my problem-solving abilities and deepen
-                my understanding of core computer science concepts. I am always
-                eager to learn new technologies, collaborate with others, and
-                contribute to building reliable software.
-              </p>
-            </motion.div>
+<motion.div variants={itemVariants}>
+  <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+    Beyond development, I actively practice Data Structures and Algorithms to strengthen my problem-solving abilities and continuously grow as a developer.
+  </p>
+</motion.div>
 
             {/* Technology Tags */}
             <motion.div
