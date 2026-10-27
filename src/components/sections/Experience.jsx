@@ -79,27 +79,54 @@ const Experience = () => {
       ref={sectionRef}
       className="py-24 relative overflow-hidden night-sky opacity-0"
     >
-      {/* 🌟 BACKGROUND EFFECTS */}
+      {/* 🌟 ENHANCED BACKGROUND EFFECTS (MATCHING OTHER PAGES) */}
       <div className="stars" />
       <div className="hidden dark:block">
         <div className="shooting-star" />
         <div className="shooting-star" />
+        <div className="shooting-star" />
+      </div>
+      <div className="hidden dark:block">
+        <div className="aurora-norway" />
         <div className="aurora-norway" />
         <div className="aurora-norway" />
         <div className="aurora-norway" />
       </div>
       <FloatingParticles />
 
-      <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-amber-50/50 to-pink-100/50 dark:hidden" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_#ffe4ef_0%,_#ffd6e8_35%,_#fbcfe8_70%,_#f9a8d4_100%)] dark:hidden" />
+
+      {/* RICH DARK MODE ORBS & RINGS */}
       <div className="absolute inset-0 hidden dark:block">
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-green-500/5 rounded-full blur-3xl animate-float" />
+        <div className="absolute top-20 right-20 w-64 h-64 bg-green-500/5 rounded-full blur-3xl animate-float" />
         <div
-          className="absolute bottom-0 right-1/4 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl animate-float"
+          className="absolute bottom-20 left-20 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl animate-float"
           style={{ animationDelay: "2s" }}
         />
         <div
+          className="absolute top-1/2 left-1/2 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "4s" }}
+        />
+        <div
+          className="absolute top-1/4 right-1/3 w-72 h-72 bg-pink-500/5 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "1s" }}
+        />
+        <div
+          className="absolute bottom-1/3 left-1/4 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "3s" }}
+        />
+
+        <div
           className="glow-ring w-96 h-96 top-1/4 left-1/4"
           style={{ animationDelay: "0s" }}
+        />
+        <div
+          className="glow-ring w-72 h-72 bottom-1/4 right-1/4"
+          style={{ animationDelay: "2s" }}
+        />
+        <div
+          className="glow-ring w-80 h-80 top-1/3 right-1/3"
+          style={{ animationDelay: "4s" }}
         />
       </div>
 
