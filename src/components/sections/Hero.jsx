@@ -74,19 +74,60 @@ const Hero = () => {
       id="hero"
       className="min-h-screen flex items-center pt-24 pb-16 relative overflow-hidden night-sky"
     >
-      {/* Background Effects */}
+      {/* 🌟 ENHANCED BACKGROUND EFFECTS */}
       <div className="stars" />
+
+      {/* More Shooting Stars */}
       <div className="hidden dark:block">
         <div className="shooting-star" />
         <div className="shooting-star" />
+        <div className="shooting-star" />
+        <div className="shooting-star" />
+      </div>
+
+      {/* More Aurora Borealis Layers */}
+      <div className="hidden dark:block">
+        <div className="aurora-norway" />
+        <div className="aurora-norway" />
         <div className="aurora-norway" />
         <div className="aurora-norway" />
         <div className="aurora-norway" />
       </div>
+
       <FloatingParticles />
 
       <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-pink-50 to-amber-100/50 dark:hidden" />
       <div className="absolute inset-0 hidden dark:block bg-gradient-to-br from-[#0a0a1a] via-[#0d0d1f] to-[#0a0a1a]" />
+
+      {/* Extra Glowing Orbs & Rings for 3D Depth in Dark Mode */}
+      <div className="absolute inset-0 hidden dark:block">
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-green-500/5 rounded-full blur-[120px] animate-float" />
+        <div
+          className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[100px] animate-float"
+          style={{ animationDelay: "2s" }}
+        />
+        <div
+          className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[120px] animate-float"
+          style={{ animationDelay: "4s" }}
+        />
+        <div
+          className="absolute top-1/2 right-1/4 w-[350px] h-[350px] bg-pink-500/5 rounded-full blur-[100px] animate-float"
+          style={{ animationDelay: "1s" }}
+        />
+
+        <div
+          className="glow-ring w-[600px] h-[600px] top-1/4 left-1/4"
+          style={{ animationDelay: "0s" }}
+        />
+        <div
+          className="glow-ring w-[450px] h-[450px] bottom-1/4 right-1/4"
+          style={{ animationDelay: "2s" }}
+        />
+        <div
+          className="glow-ring w-[500px] h-[500px] top-1/3 right-1/3"
+          style={{ animationDelay: "4s" }}
+        />
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div
@@ -168,7 +209,7 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right Column: 3D Interactive Card (Matches your screenshot) */}
+          {/* Right Column: 3D Interactive Card */}
           <motion.div
             variants={itemVariants}
             className="relative flex justify-center items-center perspective-1000 mt-12 lg:mt-0"
