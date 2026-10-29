@@ -15,7 +15,6 @@ import {
 import SectionTitle from "../common/SectionTitle";
 import FloatingParticles from "../common/FloatingParticles";
 
-// 1. ISOMETRIC 3D STAT CARD (NOW WITH INFINITE FLOATING)
 const StatCard3D = ({ icon: Icon, value, label, color }) => {
   const ref = useRef(null);
   const x = useMotionValue(0);
@@ -24,8 +23,7 @@ const StatCard3D = ({ icon: Icon, value, label, color }) => {
   const mouseXSpring = useSpring(x, { stiffness: 300, damping: 20 });
   const mouseYSpring = useSpring(y, { stiffness: 300, damping: 20 });
 
-  // Base isometric angle + mouse tilt
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["25deg", "5deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["20deg", "5deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
 
   const handleMouseMove = (e) => {
@@ -42,33 +40,26 @@ const StatCard3D = ({ icon: Icon, value, label, color }) => {
     y.set(0);
   };
 
-  // Random delay and duration for infinite floating
-  const floatDelay = Math.random() * 2;
-  const floatDuration = 3 + Math.random() * 2;
-
   return (
     <motion.div
-      // Continuous Floating Animation
       animate={{ y: [0, -12, 0] }}
       transition={{
-        duration: floatDuration,
+        duration: 4 + Math.random() * 2,
         repeat: Infinity,
         ease: "easeInOut",
-        delay: floatDelay,
+        delay: Math.random() * 2,
       }}
-      className="w-full"
+      className="w-full h-full"
     >
       <motion.div
         ref={ref}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="relative p-6 rounded-2xl bg-white/80 dark:bg-[#0d1117]/90 backdrop-blur-xl border-b-8 border-r-8 border-pink-200 dark:border-[#161b22] shadow-2xl flex flex-col items-center justify-center cursor-crosshair group transition-all duration-200"
+        className="relative w-full h-full p-6 rounded-2xl bg-white/80 dark:bg-[#0d1117]/90 backdrop-blur-xl border-b-8 border-r-8 border-pink-200 dark:border-[#161b22] shadow-2xl flex flex-col items-center justify-center cursor-crosshair group transition-all duration-200"
       >
-        {/* Glowing inner light */}
         <div className="absolute inset-0 bg-gradient-to-tr from-pink-500/10 via-transparent to-emerald-500/10 dark:from-emerald-500/20 dark:to-cyan-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-        {/* 3D Pop elements */}
         <div
           style={{ transform: "translateZ(40px)" }}
           className="flex flex-col items-center gap-3 relative z-10"
@@ -92,24 +83,18 @@ const StatCard3D = ({ icon: Icon, value, label, color }) => {
   );
 };
 
-// 2. 3D GLASS SPHERE SKILL
 const SkillSphere = ({ name, icon: Icon, color }) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.1, y: -10, rotateZ: 5 }}
+      whileHover={{ scale: 1.15, y: -10, rotateZ: 5 }}
       transition={{ type: "spring", stiffness: 300, damping: 15 }}
       className="flex flex-col items-center gap-2 group cursor-pointer"
     >
-      {/* 3D Sphere Container */}
-      <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center shadow-[inset_0_-10px_20px_rgba(0,0,0,0.1),_0_15px_25px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_-10px_20px_rgba(0,0,0,0.5),_0_15px_25px_rgba(0,0,0,0.5)] bg-white dark:bg-[#161b22] overflow-hidden">
-        {/* Glass Reflection Highlight */}
+      <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center shadow-[inset_0_-10px_20px_rgba(0,0,0,0.1),_0_15px_25px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_-10px_20px_rgba(0,0,0,0.5),_0_15px_25px_rgba(0,0,0,0.5)] bg-white dark:bg-[#161b22] overflow-hidden border border-white/20">
         <div className="absolute top-2 left-3 w-6 h-3 bg-white/80 dark:bg-white/30 rounded-full blur-[2px] transform -rotate-45" />
-
-        {/* Color Glow inside */}
         <div
           className={`absolute inset-0 opacity-20 bg-gradient-to-b ${color.replace("text-", "from-")} to-transparent`}
         />
-
         <Icon
           className={`w-8 h-8 md:w-10 md:h-10 ${color} relative z-10 drop-shadow-md`}
         />
@@ -139,7 +124,6 @@ const About = () => {
     };
   }, []);
 
-  // Updated Stats: Algorithmic Problem Solving
   const stats = [
     {
       icon: Brain,
@@ -176,7 +160,6 @@ const About = () => {
     { name: "Security", icon: Shield, color: "text-purple-500" },
   ];
 
-  // Animation for the initial fly-in effect
   const statCardVariants = {
     hidden: { opacity: 0, y: 100, scale: 0.8, rotateZ: -10 },
     visible: (i) => ({
@@ -197,9 +180,8 @@ const About = () => {
     <section
       id="about"
       ref={sectionRef}
-      className="py-20 relative overflow-hidden night-sky opacity-0"
+      className="py-24 relative overflow-hidden night-sky opacity-0"
     >
-      {/* 🌟 BACKGROUND: STARS & AURORA */}
       <div className="stars" />
       <div className="hidden dark:block">
         <div className="shooting-star" />
@@ -216,7 +198,6 @@ const About = () => {
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_#ffe4ef_0%,_#ffd6e8_35%,_#fbcfe8_70%,_#f9a8d4_100%)] dark:hidden" />
 
-      {/* GLOWING ORBS */}
       <div className="absolute inset-0 hidden dark:block">
         <div className="absolute top-20 right-20 w-64 h-64 bg-green-500/5 rounded-full blur-3xl animate-float" />
         <div
@@ -244,40 +225,42 @@ const About = () => {
           className="text-gray-900 dark:text-white"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Column - Text & 3D Glass Spheres */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="relative p-6 md:p-8 rounded-3xl bg-white/40 dark:bg-dark-card/40 backdrop-blur-xl border border-white/20 shadow-2xl"
           >
-            <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-              I'm{" "}
-              <span className="font-bold text-pink-600 dark:text-emerald-400">
-                SK Dulal Islam
-              </span>
-              , a final-year B.Tech IT student at JGEC. I build secure,
-              scalable, and user-focused web applications.
-            </p>
-            <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-              Through hands-on projects and my internship, I've developed strong
-              experience in full-stack development, clean architecture, and
-              writing maintainable code.
-            </p>
-            <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-              Beyond development, I actively practice Data Structures and
-              Algorithms to continuously strengthen my real-world
-              problem-solving abilities.
-            </p>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 dark:bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
 
-            {/* 3D Glass Spheres Tech Stack */}
-            <div className="pt-6">
-              <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-4">
+            <div className="space-y-5 relative z-10">
+              <p className="text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
+                I'm{" "}
+                <span className="font-bold text-pink-600 dark:text-emerald-400">
+                  SK Dulal Islam
+                </span>
+                , a final-year B.Tech IT student at JGEC. I build secure,
+                scalable, and user-focused web applications.
+              </p>
+              <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
+                Through hands-on projects and my internship, I've developed
+                strong experience in full-stack development, clean architecture,
+                and writing maintainable code.
+              </p>
+              <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
+                Beyond development, I actively practice Data Structures and
+                Algorithms to continuously strengthen my real-world
+                problem-solving abilities.
+              </p>
+            </div>
+
+            <div className="pt-8 relative z-10">
+              <h3 className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-5">
                 Core Technologies
               </h3>
-              <div className="flex flex-wrap gap-6 perspective-1000">
+              <div className="flex flex-wrap gap-5 perspective-1000">
                 {technologies.map((tech, index) => (
                   <SkillSphere key={index} {...tech} />
                 ))}
@@ -285,7 +268,6 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Right Column - Isometric 3D Stats with INITIAL FLY-IN */}
           <div className="grid grid-cols-2 gap-6 perspective-1000 py-8">
             {stats.map((stat, index) => (
               <motion.div
@@ -302,15 +284,14 @@ const About = () => {
           </div>
         </div>
 
-        {/* Education Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-20"
+          className="mt-24"
         >
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-10">
             <div className="relative inline-flex items-center gap-4 px-8 py-4 rounded-2xl bg-white/80 dark:bg-dark-card/80 backdrop-blur-xl border border-pink-300/60 dark:border-emerald-500/20 shadow-2xl">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-400/10 via-transparent to-pink-300/10 dark:from-emerald-500/10 dark:to-cyan-500/10" />
               <div className="relative p-2.5 rounded-full bg-pink-100 dark:bg-emerald-500/10">
@@ -327,33 +308,36 @@ const About = () => {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-pink-300/50 dark:border-emerald-500/20 bg-white/40 dark:bg-dark-card/40 backdrop-blur-xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+          <div className="rounded-3xl border border-pink-300/50 dark:border-emerald-500/20 bg-white/40 dark:bg-dark-card/40 backdrop-blur-xl p-6 md:p-10 shadow-2xl relative overflow-hidden">
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-pink-400/10 via-transparent to-pink-300/10 dark:from-emerald-500/10 dark:to-cyan-500/10 pointer-events-none" />
+
             <div className="relative z-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* B.Tech Card */}
-                <div className="rounded-3xl bg-white/90 dark:bg-dark-card/90 backdrop-blur-sm p-6 md:p-8 shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 border border-pink-200/50 dark:border-emerald-500/20 relative overflow-hidden">
+              <div className="hidden md:block absolute top-12 left-1/2 -translate-x-1/2 w-[2px] h-[calc(100%-6rem)] bg-gradient-to-b from-pink-400 via-pink-300 to-transparent dark:from-emerald-400 dark:via-cyan-500 dark:to-transparent opacity-50" />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="rounded-3xl bg-white/90 dark:bg-[#0d1117]/90 backdrop-blur-sm p-6 md:p-8 shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 border border-pink-200/50 dark:border-emerald-500/20 relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-pink-500/5 dark:bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-pink-500/10 transition-colors" />
                   <div className="relative z-10">
-                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-100 dark:bg-emerald-500/10 text-pink-600 dark:text-emerald-400 text-xs font-semibold w-fit mb-3">
+                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-100 dark:bg-emerald-500/10 text-pink-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider w-fit mb-4">
                       🎓 Degree
                     </span>
                     <div className="flex flex-col gap-2">
                       <div className="flex items-center gap-3">
-                        <div className="p-2.5 bg-pink-100 dark:bg-emerald-500/10 rounded-full flex-shrink-0">
+                        <div className="p-2.5 bg-pink-100 dark:bg-emerald-500/10 rounded-xl flex-shrink-0">
                           <GraduationCap className="w-5 h-5 text-pink-600 dark:text-emerald-400" />
                         </div>
                         <h4 className="text-lg font-bold text-pink-700 dark:text-emerald-400">
                           B.Tech in Information Technology
                         </h4>
                       </div>
-                      <div className="ml-12 space-y-0.5">
-                        <p className="text-base font-semibold text-gray-800 dark:text-gray-200">
+                      <div className="ml-12 space-y-1">
+                        <p className="text-base font-bold text-gray-800 dark:text-gray-200">
                           Jalpaiguri Government Engineering College
                         </p>
-                        <p className="text-sm text-pink-600 dark:text-emerald-400 font-medium">
+                        <p className="text-sm text-pink-600 dark:text-emerald-400 font-bold bg-pink-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded-md w-fit">
                           2023 – 2027 · CGPA: 8.0
                         </p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
                           Jalpaiguri, West Bengal
                         </p>
                       </div>
@@ -361,29 +345,29 @@ const About = () => {
                   </div>
                 </div>
 
-                {/* School Card */}
-                <div className="rounded-3xl bg-white/90 dark:bg-dark-card/90 backdrop-blur-sm p-6 md:p-8 shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 border border-pink-200/50 dark:border-emerald-500/20 relative overflow-hidden">
+                <div className="rounded-3xl bg-white/90 dark:bg-[#0d1117]/90 backdrop-blur-sm p-6 md:p-8 shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 border border-pink-200/50 dark:border-emerald-500/20 relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-pink-500/5 dark:bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-pink-500/10 transition-colors" />
                   <div className="relative z-10">
-                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-100 dark:bg-emerald-500/10 text-pink-600 dark:text-emerald-400 text-xs font-semibold w-fit mb-3">
+                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-100 dark:bg-emerald-500/10 text-pink-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider w-fit mb-4">
                       🏫 School
                     </span>
                     <div className="flex flex-col gap-2">
                       <div className="flex items-center gap-3">
-                        <div className="p-2.5 bg-pink-100 dark:bg-emerald-500/10 rounded-full flex-shrink-0">
+                        <div className="p-2.5 bg-pink-100 dark:bg-emerald-500/10 rounded-xl flex-shrink-0">
                           <GraduationCap className="w-5 h-5 text-pink-600 dark:text-emerald-400" />
                         </div>
                         <h4 className="text-lg font-bold text-pink-700 dark:text-emerald-400">
                           Higher Secondary (WBCHSE)
                         </h4>
                       </div>
-                      <div className="ml-12 space-y-0.5">
-                        <p className="text-base font-semibold text-gray-800 dark:text-gray-200">
+                      <div className="ml-12 space-y-1">
+                        <p className="text-base font-bold text-gray-800 dark:text-gray-200">
                           Mohishageria A M A High Madrasah
                         </p>
-                        <p className="text-sm text-pink-600 dark:text-emerald-400 font-medium">
+                        <p className="text-sm text-pink-600 dark:text-emerald-400 font-bold bg-pink-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded-md w-fit">
                           2020 – 2022 · Percentage: 90%
                         </p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
                           Keshpur, West Bengal
                         </p>
                       </div>
