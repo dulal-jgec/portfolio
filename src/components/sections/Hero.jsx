@@ -139,6 +139,14 @@ const Hero = () => {
           {/* Left Column: Text Content */}
           <div className="space-y-8">
             <motion.div variants={itemVariants} className="space-y-4">
+              {/* 🌟 NEW PREMIUM WELCOME TEXT */}
+              <div className="flex items-center gap-4 mb-2">
+                <div className="h-[2px] w-12 bg-gradient-to-r from-transparent to-amber-500 dark:to-emerald-500" />
+                <span className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-amber-600 dark:text-emerald-400">
+                  Welcome to my Portfolio
+                </span>
+              </div>
+
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
                 <span className="text-gray-900 dark:text-white block">
                   SK DULAL
